@@ -10,9 +10,9 @@ current_directory = os.path.dirname(os.path.abspath(__file__))
 parent_directory = os.path.abspath(os.path.join(current_directory, os.pardir))
 
 # Construct the full path to the file
-file_path1 = os.path.join(parent_directory, "HDD_Setup","Code", "script.py")
-file_path2 = os.path.join(parent_directory, "HDD_Setup","Code", "consumer.py")
-file_path3 = os.path.join(parent_directory, "HDD_Setup","Code", "producer.py")
+file_path1 = os.path.join(parent_directory ,"Code", "script.py")
+file_path2 = os.path.join(parent_directory,"Code", "consumer.py")
+file_path3 = os.path.join(parent_directory,"Code", "producer.py")
 # Run script.py
 script_process = subprocess.Popen(['python3', file_path1])
 sleep(50)
