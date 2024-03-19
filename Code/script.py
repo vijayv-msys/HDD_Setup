@@ -27,7 +27,7 @@ subprocess.run(format_command)
 #sleep(5)# Execute 'kafka-server-start.sh' command with server properties
 start_command = ["/home/ubuntu/kafka/bin/kafka-server-start.sh", "/home/ubuntu/kafka/config/kraft/server.properties"]
 subprocess.Popen(start_command)
-sleep(15)
+sleep(30)
 try:
     subprocess.run('hdfs dfsadmin -safemode leave', shell=True, check=True)
 except:
