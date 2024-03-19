@@ -33,8 +33,9 @@ try:
 except:
     print('safe')
     pass
-subprocess.run('ssh localhost', shell=True, check=True)
-try:    
+
+try:  
+    subprocess.run('ssh localhost', shell=True, check=True)
     subprocess.run('hdfs namenode -format', shell=True, check=True)
     subprocess.run('/home/ubuntu/hadoop/sbin/start-dfs.sh', shell=True, check=True)
 except:
