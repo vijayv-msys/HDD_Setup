@@ -33,6 +33,8 @@ try:
 except:
     print('safe')
     pass
+subprocess.run('ssh localhost', shell=True, check=True)    
+subprocess.run('hdfs namenode -format', shell=True, check=True)
 subprocess.run('start-dfs.sh', shell=True, check=True)
 sleep(5)
 subprocess.run('hive --service metastore', shell=True, check=True)
