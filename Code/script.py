@@ -33,9 +33,13 @@ try:
 except:
     print('safe')
     pass
-subprocess.run('ssh localhost', shell=True, check=True)    
-subprocess.run('hdfs namenode -format', shell=True, check=True)
-subprocess.run('start-dfs.sh', shell=True, check=True)
+subprocess.run('ssh localhost', shell=True, check=True)
+try:    
+    subprocess.run('hdfs namenode -format', shell=True, check=True)
+    subprocess.run('/home/ubuntu/hadoop/sbin/start-dfs.sh', shell=True, check=True)
+except:
+    print('Already Started dfs')
+    pass
 sleep(5)
 subprocess.run('hive --service metastore', shell=True, check=True)
 sleep(5)
