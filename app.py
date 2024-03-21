@@ -82,7 +82,7 @@ def hdd_failure_prediction_result():
 DB_HOST = 'localhost'
 DB_NAME = 'results'
 DB_USER = 'postgres'
-DB_PASSWORD = '1234'
+DB_PASSWORD =1234
 def fetch_data_from_database():
     conn = psycopg2.connect(host=DB_HOST, database=DB_NAME, user=DB_USER, password=DB_PASSWORD)
     cursor = conn.cursor()
