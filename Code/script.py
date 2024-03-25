@@ -16,16 +16,16 @@ subprocess.run(command, shell=True)
 kafka_cluster_id = str(uuid.uuid4())
 
 # Execute 'kafka-storage.sh random-uuid' command to generate Kafka cluster ID
-storage_command = ["/home/ubuntu/kafka/bin/kafka-storage.sh", "random-uuid"]
+storage_command = ["/kafka/bin/kafka-storage.sh", "random-uuid"]
 process = subprocess.Popen(storage_command, stdout=subprocess.PIPE)
 output, _ = process.communicate()
 kafka_cluster_id = output.decode('utf-8').strip()
 
 # Execute 'kafka-storage.sh format' command with Kafka cluster ID and server properties
-format_command = ["/home/ubuntu/kafka/bin/kafka-storage.sh", "format", "-t", kafka_cluster_id, "-c", "/home/ubuntu/kafka/config/kraft/server.properties"]
+format_command = ["/kafka/bin/kafka-storage.sh", "format", "-t", kafka_cluster_id, "-c", "/kafka/config/kraft/server.properties"]
 subprocess.run(format_command)
 #sleep(5)# Execute 'kafka-server-start.sh' command with server properties
-start_command = ["/home/ubuntu/kafka/bin/kafka-server-start.sh", "/home/ubuntu/kafka/config/kraft/server.properties"]
+start_command = ["/kafka/bin/kafka-server-start.sh", "/kafka/config/kraft/server.properties"]
 subprocess.Popen(start_command)
 sleep(30)
 try:
@@ -35,9 +35,7 @@ except:
     pass
 
 try:  
-    subprocess.run('sudo ssh localhost', shell=True, check=True)
-    subprocess.run('hdfs namenode -format', shell=True, check=True)
-    subprocess.run('/home/ubuntu/hadoop/sbin/start-dfs.sh', shell=True, check=True)
+    subprocess.run('/hadoop/sbin/start-dfs.sh', shell=True, check=True)
 except:
     print('Already Started dfs')
     pass
