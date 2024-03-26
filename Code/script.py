@@ -34,11 +34,11 @@ except:
     print('safe')
     pass
 
-try:  
-    subprocess.run('/hadoop/sbin/start-dfs.sh', shell=True, check=True)
-except:
-    print('Already Started dfs')
-    pass
+# try:  
+#     subprocess.run('/hadoop/sbin/start-dfs.sh', shell=True, check=True)
+# except:
+#     print('Already Started dfs')
+#     pass
 sleep(5)
 subprocess.run('hive --service metastore', shell=True, check=True)
 sleep(5)
